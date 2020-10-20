@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :favorites
-      resources :stocks
+      resources :stocks, only: [:index]
+      get '/stocks/:symbol' => 'stocks#search'
     end
   end
 end
