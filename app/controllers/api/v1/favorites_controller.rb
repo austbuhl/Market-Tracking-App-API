@@ -10,7 +10,7 @@ class Api::V1::FavoritesController < ApplicationController
     )
 
     full_response = favorites.map do |fav|
-      response = { 
+      response = {
         id: fav.id,
         user_id: fav.user_id,
         stock_id: fav.stock_id,
@@ -18,7 +18,8 @@ class Api::V1::FavoritesController < ApplicationController
           company: fav.stock.company_name,
           ticker: fav.stock.ticker
         },
-        quote: client.quote(fav.stock.ticker)
+        quote: client.quote(fav.stock.ticker),
+        news: client.news(fav.stock.ticker, 1)
       }
     end
 
@@ -26,10 +27,10 @@ class Api::V1::FavoritesController < ApplicationController
 
     # render json: favorites.to_json(:include => {
     #   :stock => {:only => [:company_name, :ticker]},
-    #   :user => {:only => [:name]}     
+    #   :user => {:only => [:name]}
     # })
 
-    
+
   end
 
   def create

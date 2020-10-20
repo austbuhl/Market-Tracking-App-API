@@ -14,3 +14,5 @@ tsla = Stock.create(company_name: 'Tesla', ticker: 'TSLA')
 aapl = Stock.create(company_name: 'Apple Inc.', ticker: 'AAPL')
 
 Favorite.create(user: austin, stock: msft)
+Favorite.create(user: austin, stock: tsla)
+Favorite.create(user: austin, stock: aapl)
