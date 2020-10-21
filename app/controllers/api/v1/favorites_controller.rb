@@ -3,8 +3,8 @@ class Api::V1::FavoritesController < ApplicationController
   # POST to /login and send the username entered in the form...
   # in application controller we either find or create a new user...do
   # then in favorites we just grab the current_user from our application controller @current_user
-  
-  
+
+
   token = 'pk_6457f5f5569a457a9f95635f54b70833'
   CLIENT = IEX::Api::Client.new(
     publishable_token: token,
@@ -54,11 +54,11 @@ class Api::V1::FavoritesController < ApplicationController
     render json: response
   end
 
-  
+
   def create
-    fav_stock = Stock.create!(params[:symbol])
-    byebug
-    favorite = Favorite.create!(user_id: params[:user], stock_id: fav_stock.id)
+    fav_stock = Stock.create!(ticker:params[:symbol], company_name: params[:company_name])
+
+    favorite = Favorite.create!(user_id: params[:user_id], stock_id: fav_stock.id)
     render json: favorite
   end
 
@@ -69,7 +69,7 @@ class Api::V1::FavoritesController < ApplicationController
     render json: favorite
   end
 
-  # def favorite_params
-  #   params.require(:favorite).permit(:user_id, :stock_id)
-  # end
+  def favorite_params
+    params.permit(:user_id, :symbol)
+  end
 end
