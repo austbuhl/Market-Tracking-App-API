@@ -48,8 +48,8 @@ class Api::V1::FavoritesController < ApplicationController
         ticker: favorite.stock.ticker
       },
       quote: CLIENT.quote(favorite.stock.ticker),
-      news: CLIENT.news(favorite.stock.ticker, 3)
-      #chart: CLIENT.chart(favorite.stock.ticker, '6m', chart_close_only: true)
+      news: CLIENT.news(favorite.stock.ticker, 3),
+      chart: CLIENT.chart(favorite.stock.ticker, '3m', chart_close_only: true)
     }
     render json: response
   end

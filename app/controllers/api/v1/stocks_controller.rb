@@ -30,8 +30,8 @@ class Api::V1::StocksController < ApplicationController
 
     response = {
       quote: CLIENT.quote(symbol),
-      news: CLIENT.news(symbol, 3)
-      #chart: CLIENT.chart(favorite.stock.ticker, '6m', chart_close_only: true)
+      news: CLIENT.news(symbol, 3),
+      chart: CLIENT.chart(symbol, '3m', chart_close_only: true)
     }
     render json: response
   end
