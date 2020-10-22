@@ -3,11 +3,10 @@ class Api::V1::FavoritesController < ApplicationController
   # POST to /login and send the username entered in the form...
   # in application controller we either find or create a new user...do
   # then in favorites we just grab the current_user from our application controller @current_user
+  IEX_KEY = ENV['iex_publishable_key']
 
-
-  token = 'pk_6457f5f5569a457a9f95635f54b70833'
   CLIENT = IEX::Api::Client.new(
-    publishable_token: token,
+    publishable_token: IEX_KEY,
     endpoint: 'https://cloud.iexapis.com/v1'
   )
 

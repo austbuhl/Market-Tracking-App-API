@@ -1,16 +1,13 @@
 class Api::V1::StocksController < ApplicationController
-  token = 'pk_6457f5f5569a457a9f95635f54b70833'
+  
+  IEX_KEY = ENV['iex_publishable_key']
+
   CLIENT = IEX::Api::Client.new(
-    publishable_token: token,
+    publishable_token: IEX_KEY,
     endpoint: 'https://cloud.iexapis.com/v1'
   )
 
   def index
-    token = 'pk_6457f5f5569a457a9f95635f54b70833'
-    client = IEX::Api::Client.new(
-      publishable_token: token,
-      endpoint: 'https://cloud.iexapis.com/v1'
-    )
 
     response = {
       high_level_metrics: [
