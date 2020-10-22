@@ -1,5 +1,5 @@
 class Api::V1::StocksController < ApplicationController
-  
+
   IEX_KEY = ENV['iex_publishable_key']
 
   CLIENT = IEX::Api::Client.new(

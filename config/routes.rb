@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :favorites
       resources :stocks, only: [:index]
+
+      get '/companies' => 'company_tickers#index'
       get '/stocks/:symbol' => 'stocks#search'
     end
   end

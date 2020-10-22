@@ -16,3 +16,13 @@ aapl = Stock.create(company_name: 'Apple Inc.', ticker: 'AAPL')
 Favorite.create(user: austin, stock: msft)
 Favorite.create(user: austin, stock: tsla)
 Favorite.create(user: austin, stock: aapl)
+
+# IEX_KEY = ENV['iex_publishable_key']
+#
+# CLIENT = IEX::Api::Client.new(
+#   publishable_token: IEX_KEY,
+#   endpoint: 'https://cloud.iexapis.com/v1'
+# )
+# CLIENT.ref_data_symbols().each do |element|
+#   CompanyTicker.create(symbol:element.symbol, name:element.name )
+# end
