@@ -18,7 +18,7 @@ Favorite.create(user: austin, stock: tsla)
 Favorite.create(user: austin, stock: aapl)
 
 # IEX_KEY = ENV['iex_publishable_key']
-#
+
 # CLIENT = IEX::Api::Client.new(
 #   publishable_token: IEX_KEY,
 #   endpoint: 'https://cloud.iexapis.com/v1'
