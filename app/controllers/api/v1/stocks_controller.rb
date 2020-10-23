@@ -11,7 +11,7 @@ class Api::V1::StocksController < ApplicationController
 
     top_10 = CLIENT.stock_market_list(:mostactive)
 
-    top_10_plus_logos = top_10.map do |company| 
+    top_10_plus_logos = top_10.map do |company|
       response = {
         quote: company,
         logo: CLIENT.logo(company.symbol)
@@ -37,7 +37,7 @@ class Api::V1::StocksController < ApplicationController
     response = {
       quote: CLIENT.quote(symbol),
       news: CLIENT.news(symbol, 3),
-      chart: CLIENT.chart(symbol, '3m', chart_close_only: true)
+      chart: CLIENT.chart(symbol, '6m', chart_close_only: true)
     }
     render json: response
   end
