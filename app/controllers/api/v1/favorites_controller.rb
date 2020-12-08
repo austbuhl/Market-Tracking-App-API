@@ -11,7 +11,7 @@ class Api::V1::FavoritesController < ApplicationController
   )
 
   def index
-    current_user = User.find(1)
+    current_user = User.first
     favorites = current_user.favorites
 
     full_response = favorites.map do |fav|
